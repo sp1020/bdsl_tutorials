@@ -1,4 +1,5 @@
 import requests
+import hashlib
 
 
 def fetch_a_file(url, filename, filetype='binary'):
@@ -34,3 +35,20 @@ def fetch_a_file(url, filename, filetype='binary'):
         print(f'Timeout error: {timeout_err}')
     except requests.exceptions.RequestException as req_err:
         print(f'Error: {req_err}')
+
+def check_md5(filename, md5):
+    """Calculate the file's checksum and verify it against the provided reference value.
+
+    Args:
+        filename (str): The file name to calculate checksum.
+        md5 (str): The checksum value of the file.
+    """
+
+    hash_md5 = hashlib.md5()
+    with open(filename, "rb") as file: 
+        for chunk in iter(lambda: file.read(4096), b""):
+            hash_md5.update(chunk)
+    if hash_md5.hexdigest() == md5: 
+        print(f'[Info] Checksum match for {filename}')
+    else:
+        print(f'[Error] Checksum mismatch for {filename}')
