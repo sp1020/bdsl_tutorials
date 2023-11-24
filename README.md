@@ -1,7 +1,11 @@
 # BDSL tutorials
 
-Tutorials for BDSL students will be posted here. Basic bioinformatics skills listed below will be discussed. 
+This repository is dedicated for eduction of bioinformatics, including topics related to Python coding, Linux, and Data Science. 
 
-* Python 
-* Linux
-* Data Science 
+## Web 
+
+| Files          | Description                                                   |
+| -------------- | ------------------------------------------------------------- |
+| fetch_files.py | Fetch files from the internet using Python `requests` module. |
+
+  
